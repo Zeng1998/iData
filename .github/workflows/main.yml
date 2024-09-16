@@ -13,6 +13,12 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Setup build tool version variable
+        shell: bash
+        run: |
+              BUILD_TOOL_VERSION=$(ls /usr/local/lib/android/sdk/build-tools/ | tail -n 1)
+              echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
+              echo Last build tool version is: $BUILD_TOOL_VERSION
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
