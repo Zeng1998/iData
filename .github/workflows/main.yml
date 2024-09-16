@@ -22,6 +22,7 @@ jobs:
         with:
           gradle-version: current
           arguments: assembleRelease
+      - run: BUILD_TOOL_VERSION=$(ls /usr/local/lib/android/sdk/build-tools/ | tail -n 1)
       - uses: r0adkll/sign-android-release@v1
         id: sign_app
         with:
@@ -30,6 +31,8 @@ jobs:
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
       - run: mv ${{steps.sign_app.outputs.signedReleaseFile}} iData_$GITHUB_REF_NAME.apk
       - uses: ncipollo/release-action@v1
         with:
