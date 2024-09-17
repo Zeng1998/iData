@@ -320,7 +320,6 @@ fun HomeScreen(
                             }
                             if (!searchFieldExpanded && showRightActions) IconButton(onClick = {
                                 sortMenusExpanded = true
-                                showRightActions = false
                             }) {
                                 Icon(
                                     painterResource(
