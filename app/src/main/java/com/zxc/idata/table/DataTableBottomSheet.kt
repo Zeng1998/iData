@@ -359,6 +359,11 @@ fun ColumnSheet(
                     onClick = { showCountStepDialog = true })
             }
             if (columnState.type == ColumnType.RATING) {
+                onUpdateColumnState(
+                    columnState.copy(
+                        ext = "${columnState.ratingMax},${columnState.halfStar}"
+                    )
+                )
                 HeaderMetaItem(
                     key = getResourceString(R.string.max_rating),
                     value = columnState.ratingMax.toString(),
