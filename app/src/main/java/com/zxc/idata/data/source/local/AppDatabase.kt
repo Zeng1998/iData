@@ -3,12 +3,6 @@ package com.zxc.idata.data.source.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
-//@DeleteColumn(
-//    tableName = "idata_column_description",
-//    columnName = "order"
-//)
-//class DeleteOrderMigration : AutoMigrationSpec {}
-
 @Database(
     entities = [
         LocalFileDescription::class,
