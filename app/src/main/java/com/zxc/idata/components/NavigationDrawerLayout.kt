@@ -63,16 +63,16 @@ fun NavigationDrawerLayout(
                 HorizontalDivider()
                 val items = arrayListOf(
                     DrawerMenuItem(getResourceString(R.string.home), R.drawable.home, "homeScreen"),
-                    DrawerMenuItem(
-                        "${getResourceString(R.string.template)} (WIP)",
-                        R.drawable.typepattern,
-                        "template"
-                    ),
-                    DrawerMenuItem(
-                        "${getResourceString(R.string.cloud)} (WIP)",
-                        R.drawable.cloud,
-                        "cloud"
-                    ),
+//                    DrawerMenuItem(
+//                        "${getResourceString(R.string.template)} (WIP)",
+//                        R.drawable.typepattern,
+//                        "template"
+//                    ),
+//                    DrawerMenuItem(
+//                        "${getResourceString(R.string.cloud)} (WIP)",
+//                        R.drawable.cloud,
+//                        "cloud"
+//                    ),
                     DrawerMenuItem(
                         getResourceString(R.string.settings),
                         R.drawable.settings,
