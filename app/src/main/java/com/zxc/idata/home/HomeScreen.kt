@@ -6,6 +6,7 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,6 +25,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -35,7 +37,6 @@ import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.material3.rememberTopAppBarState
@@ -293,12 +294,28 @@ fun HomeScreen(
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
                 topBar = {
-                    TopAppBar(
+                    CenterAlignedTopAppBar(
                         colors = TopAppBarDefaults.topAppBarColors(
                             containerColor = MaterialTheme.colorScheme.background,
                             titleContentColor = MaterialTheme.colorScheme.primary,
                         ),
-                        title = { if (!searchFieldExpanded) Text(stringResource(id = R.string.app_name)) },
+                        title = { if (!searchFieldExpanded) {
+                            val currentFolder=uiState.path.last().name
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                            ){
+                                Text(stringResource(id = R.string.app_name), modifier = Modifier.clickable(
+                                    onClick = { viewModel.homeFolder() }
+                                ))
+                                if(uiState.path.size>2){
+                                    Text(" /..", fontSize = 16.sp, color = Color.Black)
+                                }
+                                if(currentFolder!="Home"){
+                                    Text(" / $currentFolder", fontSize = 16.sp, color = Color.Black)
+                                }
+                            }
+
+                        } },
                         navigationIcon = {
                             if (!searchFieldExpanded) IconButton(onClick = { scope.launch { drawerState.open() } }) {
                                 Icon(
@@ -413,19 +430,6 @@ fun HomeScreen(
                 }) { innerPadding ->
                 // main contents
                 Column(modifier = Modifier.padding(innerPadding)) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 16.dp, end = 16.dp, bottom = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Breadcrumbs(
-                            path = uiState.path.drop(1),
-                            onHomeClick = viewModel::homeFolder,
-                            onPathClick = viewModel::intoFolder
-                        )
-                    }
                     if (!uiState.isCompleted) {
                         Box(
                             modifier = Modifier.fillMaxSize(),
