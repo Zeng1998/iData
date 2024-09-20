@@ -309,28 +309,30 @@ fun HomeScreen(
                         },
                         scrollBehavior = scrollBehavior,
                         actions = {
-                            if (!searchFieldExpanded && showRightActions) IconButton(onClick = {
-                                searchFieldExpanded = true
-                                showRightActions = false
-                            }) {
-                                Icon(
-                                    painterResource(id = R.drawable.search),
-                                    contentDescription = null,
-                                )
-                            }
-                            if (!searchFieldExpanded && showRightActions) IconButton(onClick = {
-                                sortMenusExpanded = true
-                            }) {
-                                Icon(
-                                    painterResource(
-                                        id = if (sortOrderPreference == OrderType.ASC) {
-                                            R.drawable.sortascending
-                                        } else {
-                                            R.drawable.sortdescending
-                                        }
-                                    ),
-                                    contentDescription = null,
-                                )
+                            if (!searchFieldExpanded && showRightActions) {
+                                IconButton(onClick = {
+                                    searchFieldExpanded = true
+                                    showRightActions = false
+                                }) {
+                                    Icon(
+                                        painterResource(id = R.drawable.search),
+                                        contentDescription = null,
+                                    )
+                                }
+                                IconButton(onClick = {
+                                    sortMenusExpanded = true
+                                }) {
+                                    Icon(
+                                        painterResource(
+                                            id = if (sortOrderPreference == OrderType.ASC) {
+                                                R.drawable.sortascending
+                                            } else {
+                                                R.drawable.sortdescending
+                                            }
+                                        ),
+                                        contentDescription = null,
+                                    )
+                                }
                             }
                             val keyboardController = LocalSoftwareKeyboardController.current
                             SearchField(
@@ -348,7 +350,6 @@ fun HomeScreen(
                                     showRightActions = true
                                 }
                             )
-
                             val menuItems = SortType.entries.toTypedArray()
                             DropdownMenu(
                                 expanded = sortMenusExpanded,
@@ -424,9 +425,6 @@ fun HomeScreen(
                             onHomeClick = viewModel::homeFolder,
                             onPathClick = viewModel::intoFolder
                         )
-                        if (!viewModel.isHomeFolder()) {
-                            PathBackButton(viewModel::outFolder)
-                        }
                     }
                     if (!uiState.isCompleted) {
                         Box(
