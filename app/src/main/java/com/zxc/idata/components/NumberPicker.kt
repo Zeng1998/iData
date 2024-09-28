@@ -1,6 +1,5 @@
 package com.zxc.idata.components
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -47,7 +47,6 @@ class PickerState (initialSelectedItem: String = "") {
     var selectedItem by mutableStateOf(initialSelectedItem)
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Picker(
     modifier: Modifier = Modifier,
@@ -71,7 +70,7 @@ fun Picker(
     val listState = rememberLazyListState(initialFirstVisibleItemIndex = listStartIndex)
     val flingBehavior = rememberSnapFlingBehavior(lazyListState = listState)
 
-    val itemHeightPixels = remember { mutableStateOf(0) }
+    val itemHeightPixels = remember { mutableIntStateOf(0) }
     val itemHeightDp = pixelsToDp(itemHeightPixels.value)
 
     val fadingEdgeGradient = remember {

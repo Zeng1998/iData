@@ -304,9 +304,9 @@ fun ColumnSheet(
                     onUpdateColumnState(
                         columnState.copy(
                             ext = when (columnState.type) {
-                                ColumnType.DATETIME -> DateTimeFormat.yyyy_bar_MM_bar_dd_space_HH_colon_mm_colon_ss.displayName
-                                ColumnType.DATE -> DateFormat.yyyy_bar_MM_bar_dd.displayName
-                                ColumnType.TIME -> TimeFormat.HH_colon_mm_colon_ss.displayName
+                                ColumnType.DATETIME -> DateTimeFormat.LOW_YYYY_BAR_MM_BAR_LOW_DD_SPACE_HH_LOW_COLON_LOW_MM_COLON_LOW_SS.displayName
+                                ColumnType.DATE -> DateFormat.LOW_YYYY_BAR_MM_BAR_LOW_DD.displayName
+                                ColumnType.TIME -> TimeFormat.HH_COLON_LOW_MM_COLON_LOW_SS.displayName
                                 else -> ""
                             }
                         )

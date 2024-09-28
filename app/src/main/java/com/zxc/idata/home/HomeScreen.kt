@@ -225,17 +225,19 @@ fun FileDescriptionListItem(
                                         modifier = Modifier.size(24.dp),
                                     )
                                 },
-                                colors = if (menuItem.text == getResourceString(R.string.delete))
-                                    MenuDefaults.itemColors(
+                                colors = when (menuItem.text) {
+                                    getResourceString(R.string.delete) -> MenuDefaults.itemColors(
                                         textColor = MaterialTheme.colorScheme.error,
                                         leadingIconColor = MaterialTheme.colorScheme.error
-                                    ) else if (menuItem.text == getResourceString(R.string.unpin)) {
-                                    MenuDefaults.itemColors(
-                                        textColor = MaterialTheme.colorScheme.primary,
-                                        leadingIconColor = MaterialTheme.colorScheme.primary
                                     )
-                                } else
-                                    MenuDefaults.itemColors()
+                                    getResourceString(R.string.unpin) -> {
+                                        MenuDefaults.itemColors(
+                                            textColor = MaterialTheme.colorScheme.primary,
+                                            leadingIconColor = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
+                                    else -> MenuDefaults.itemColors()
+                                }
                             )
                         }
                     }

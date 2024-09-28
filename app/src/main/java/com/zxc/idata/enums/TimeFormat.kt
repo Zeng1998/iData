@@ -3,6 +3,6 @@ package com.zxc.idata.enums
 enum class TimeFormat(
     val displayName:String
 ) {
-    HH_colon_mm_colon_ss("HH:mm:ss"),
-    HH_colon_mm_colon_ss_space_a("HH:mm:ss a"),
+    HH_COLON_LOW_MM_COLON_LOW_SS("HH:mm:ss"),
+    HH_COLON_LOW_MM_COLON_LOW_SS_SPACE_LOW_A("HH:mm:ss a"),
 }

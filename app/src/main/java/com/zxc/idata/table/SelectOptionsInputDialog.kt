@@ -268,7 +268,7 @@ fun SelectOptionsInputDialog(
                             singleLine = true,
                             textStyle = LocalTextStyle.current.copy(fontSize = 14.sp),
                             decorationBox = { innerTextField ->
-                                InnerRowComponent() {
+                                InnerRowComponent {
                                     Column {
                                         innerTextField()
                                         Spacer(modifier = Modifier.height(4.dp))

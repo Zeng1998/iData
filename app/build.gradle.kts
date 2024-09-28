@@ -22,7 +22,7 @@ android {
             useSupportLibrary = true
         }
 
-        // for room automigration
+        // for room auto migration
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }

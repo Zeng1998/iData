@@ -3,6 +3,6 @@ package com.zxc.idata.enums
 enum class DateTimeFormat(
     val displayName: String,
 ) {
-    yyyy_bar_MM_bar_dd_space_HH_colon_mm_colon_ss("yyyy-MM-dd HH:mm:ss"),
-    MM_backslash_dd_backslash_yyyy_space_HH_colon_mm_colon_ss_space_a("MM/dd/yyyy HH:mm:ss a"),
+    LOW_YYYY_BAR_MM_BAR_LOW_DD_SPACE_HH_LOW_COLON_LOW_MM_COLON_LOW_SS("yyyy-MM-dd HH:mm:ss"),
+    MM_BACKSLASH_LOW_DD_BACKSLASH_LOW_YYYY_SPACE_HH_COLON_LOW_MM_COLON_LOW_SS_SPACE_LOW_A("MM/dd/yyyy HH:mm:ss a"),
 }

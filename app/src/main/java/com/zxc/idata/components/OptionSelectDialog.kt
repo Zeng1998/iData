@@ -52,7 +52,7 @@ fun OptionSelectDialog(
                 .fillMaxWidth()
                 .verticalScroll(scrollState),
         ) {
-            for ((index, option) in options.withIndex()) {
+            for (option in options) {
                 Row(
                     Modifier
                         .fillMaxWidth()
