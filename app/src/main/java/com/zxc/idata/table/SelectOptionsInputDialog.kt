@@ -61,7 +61,6 @@ fun SelectOptionsInputDialog(
     getResourceString: (Int) -> String,
     canDeleteOption: (SelectOption) -> Boolean,
 ) {
-    // 这个场景下直接用 Column 就行，LazyColumn 有很多奇奇怪怪的问题
     val focusRequester = remember { FocusRequester() }
     val context = LocalContext.current
     // better than mutableStateOf(list)+copy

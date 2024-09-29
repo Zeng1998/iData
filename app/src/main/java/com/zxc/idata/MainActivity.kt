@@ -43,7 +43,6 @@ class MainActivity : ComponentActivity() {
                 composable("settingsScreen") {
                     SettingsScreen(navController)
                 }
-                // 传递参数
                 composable(
                     "tableScreen/{tableId}/{tableName}",
                     arguments = listOf(
