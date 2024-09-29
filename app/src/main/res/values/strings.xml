@@ -85,4 +85,5 @@
     <string name="unpin">Unpin</string>
     <string name="column_order">Column Order</string>
     <string name="row_order">Row Order</string>
+    <string name="follow_system">Follow System</string>
 </resources>

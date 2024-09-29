@@ -85,4 +85,5 @@
     <string name="unpin">取消置顶</string>
     <string name="column_order">列顺序</string>
     <string name="row_order">行顺序</string>
+    <string name="follow_system">跟随系统</string>
 </resources>
